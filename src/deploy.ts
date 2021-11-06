@@ -74,6 +74,13 @@ async function execWithCredentials(
 ) {
   let deployOutputBuf: Buffer[] = [];
 
+  console.log(
+    "npx firebase-tools",
+    ...args,
+    ...(projectId ? ["--project", projectId] : []),
+    debug ? "--debug" : "--json"
+  );
+
   try {
     await exec(
       "npx firebase-tools",
